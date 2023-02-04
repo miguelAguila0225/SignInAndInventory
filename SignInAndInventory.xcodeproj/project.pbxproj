@@ -9,11 +9,22 @@
 /* Begin PBXBuildFile section */
 		5B7BFA60298D5FEC00240FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BFA5F298D5FEC00240FB9 /* AppDelegate.swift */; };
 		5B7BFA62298D5FEC00240FB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BFA61298D5FEC00240FB9 /* SceneDelegate.swift */; };
-		5B7BFA64298D5FEC00240FB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BFA63298D5FEC00240FB9 /* ViewController.swift */; };
+		5B7BFA64298D5FEC00240FB9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BFA63298D5FEC00240FB9 /* SplashViewController.swift */; };
 		5B7BFA67298D5FEC00240FB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B7BFA65298D5FEC00240FB9 /* Main.storyboard */; };
 		5B7BFA69298D5FEE00240FB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7BFA68298D5FEE00240FB9 /* Assets.xcassets */; };
 		5B7BFA6C298D5FEE00240FB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B7BFA6A298D5FEE00240FB9 /* LaunchScreen.storyboard */; };
 		5B7BFA74298D657000240FB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B7BFA73298D656F00240FB9 /* GoogleService-Info.plist */; };
+		5BF8485C298E112500D07C73 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8485B298E112500D07C73 /* LogInViewController.swift */; };
+		5BF8485E298E162B00D07C73 /* FirebaseAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8485D298E162B00D07C73 /* FirebaseAuthenticationManager.swift */; };
+		5BF84860298E26F900D07C73 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8485F298E26F900D07C73 /* RegistrationViewController.swift */; };
+		5BF84862298E311A00D07C73 /* AlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF84861298E311A00D07C73 /* AlertControllerExtension.swift */; };
+		5BF84864298E3B5A00D07C73 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF84863298E3B5A00D07C73 /* InventoryViewController.swift */; };
+		5BF84867298E45BB00D07C73 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF84865298E45BB00D07C73 /* InventoryTableViewCell.swift */; };
+		5BF84868298E45BB00D07C73 /* InventoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF84866298E45BB00D07C73 /* InventoryTableViewCell.xib */; };
+		5BF8486A298E47FE00D07C73 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF84869298E47FE00D07C73 /* InventoryItem.swift */; };
+		5BF8486C298E4CAC00D07C73 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8486B298E4CAC00D07C73 /* FirestoreManager.swift */; };
+		5BF8486E298E58A900D07C73 /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8486D298E58A900D07C73 /* ItemDetailsViewController.swift */; };
+		5BF84870298E69A800D07C73 /* EncoderDecoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8486F298E69A800D07C73 /* EncoderDecoderExtension.swift */; };
 		E555C21754E4ADD6D5E687F7 /* Pods_SignInAndInventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EA1760D75ADB8B198C4073 /* Pods_SignInAndInventory.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,12 +33,23 @@
 		5B7BFA5C298D5FEC00240FB9 /* SignInAndInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignInAndInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7BFA5F298D5FEC00240FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B7BFA61298D5FEC00240FB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5B7BFA63298D5FEC00240FB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B7BFA63298D5FEC00240FB9 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		5B7BFA66298D5FEC00240FB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B7BFA68298D5FEE00240FB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B7BFA6B298D5FEE00240FB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B7BFA6D298D5FEE00240FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B7BFA73298D656F00240FB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5BF8485B298E112500D07C73 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		5BF8485D298E162B00D07C73 /* FirebaseAuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationManager.swift; sourceTree = "<group>"; };
+		5BF8485F298E26F900D07C73 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		5BF84861298E311A00D07C73 /* AlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerExtension.swift; sourceTree = "<group>"; };
+		5BF84863298E3B5A00D07C73 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		5BF84865298E45BB00D07C73 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
+		5BF84866298E45BB00D07C73 /* InventoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InventoryTableViewCell.xib; sourceTree = "<group>"; };
+		5BF84869298E47FE00D07C73 /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
+		5BF8486B298E4CAC00D07C73 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		5BF8486D298E58A900D07C73 /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
+		5BF8486F298E69A800D07C73 /* EncoderDecoderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderDecoderExtension.swift; sourceTree = "<group>"; };
 		65D526B118B236E58DCC1C7C /* Pods-SignInAndInventory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignInAndInventory.debug.xcconfig"; path = "Target Support Files/Pods-SignInAndInventory/Pods-SignInAndInventory.debug.xcconfig"; sourceTree = "<group>"; };
 		A5546D03B98806F16328E47A /* Pods-SignInAndInventory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignInAndInventory.release.xcconfig"; path = "Target Support Files/Pods-SignInAndInventory/Pods-SignInAndInventory.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,16 +87,59 @@
 		5B7BFA5E298D5FEC00240FB9 /* SignInAndInventory */ = {
 			isa = PBXGroup;
 			children = (
+				5BF84858298E10BA00D07C73 /* Models */,
+				5BF84859298E10C600D07C73 /* Views */,
+				5BF8485A298E10CD00D07C73 /* Controllers */,
+				5BF84857298E108700D07C73 /* Resources */,
 				5B7BFA73298D656F00240FB9 /* GoogleService-Info.plist */,
 				5B7BFA5F298D5FEC00240FB9 /* AppDelegate.swift */,
 				5B7BFA61298D5FEC00240FB9 /* SceneDelegate.swift */,
-				5B7BFA63298D5FEC00240FB9 /* ViewController.swift */,
 				5B7BFA65298D5FEC00240FB9 /* Main.storyboard */,
 				5B7BFA68298D5FEE00240FB9 /* Assets.xcassets */,
 				5B7BFA6A298D5FEE00240FB9 /* LaunchScreen.storyboard */,
 				5B7BFA6D298D5FEE00240FB9 /* Info.plist */,
 			);
 			path = SignInAndInventory;
+			sourceTree = "<group>";
+		};
+		5BF84857298E108700D07C73 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5BF8485D298E162B00D07C73 /* FirebaseAuthenticationManager.swift */,
+				5BF8486B298E4CAC00D07C73 /* FirestoreManager.swift */,
+				5BF84861298E311A00D07C73 /* AlertControllerExtension.swift */,
+				5BF8486F298E69A800D07C73 /* EncoderDecoderExtension.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5BF84858298E10BA00D07C73 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5BF84869298E47FE00D07C73 /* InventoryItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5BF84859298E10C600D07C73 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5BF84865298E45BB00D07C73 /* InventoryTableViewCell.swift */,
+				5BF84866298E45BB00D07C73 /* InventoryTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5BF8485A298E10CD00D07C73 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B7BFA63298D5FEC00240FB9 /* SplashViewController.swift */,
+				5BF8485B298E112500D07C73 /* LogInViewController.swift */,
+				5BF8485F298E26F900D07C73 /* RegistrationViewController.swift */,
+				5BF84863298E3B5A00D07C73 /* InventoryViewController.swift */,
+				5BF8486D298E58A900D07C73 /* ItemDetailsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		791E0EE1BFECDF17FA192DCB /* Pods */ = {
@@ -154,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF84868298E45BB00D07C73 /* InventoryTableViewCell.xib in Resources */,
 				5B7BFA6C298D5FEE00240FB9 /* LaunchScreen.storyboard in Resources */,
 				5B7BFA74298D657000240FB9 /* GoogleService-Info.plist in Resources */,
 				5B7BFA69298D5FEE00240FB9 /* Assets.xcassets in Resources */,
@@ -210,9 +276,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B7BFA64298D5FEC00240FB9 /* ViewController.swift in Sources */,
+				5BF84870298E69A800D07C73 /* EncoderDecoderExtension.swift in Sources */,
+				5BF84860298E26F900D07C73 /* RegistrationViewController.swift in Sources */,
+				5BF84867298E45BB00D07C73 /* InventoryTableViewCell.swift in Sources */,
+				5BF8485C298E112500D07C73 /* LogInViewController.swift in Sources */,
+				5B7BFA64298D5FEC00240FB9 /* SplashViewController.swift in Sources */,
+				5BF84862298E311A00D07C73 /* AlertControllerExtension.swift in Sources */,
+				5BF8486E298E58A900D07C73 /* ItemDetailsViewController.swift in Sources */,
+				5BF8486A298E47FE00D07C73 /* InventoryItem.swift in Sources */,
+				5BF8485E298E162B00D07C73 /* FirebaseAuthenticationManager.swift in Sources */,
+				5BF84864298E3B5A00D07C73 /* InventoryViewController.swift in Sources */,
 				5B7BFA60298D5FEC00240FB9 /* AppDelegate.swift in Sources */,
 				5B7BFA62298D5FEC00240FB9 /* SceneDelegate.swift in Sources */,
+				5BF8486C298E4CAC00D07C73 /* FirestoreManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
