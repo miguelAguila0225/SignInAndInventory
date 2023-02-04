@@ -41,13 +41,13 @@ public class FirebaseAuthenticationManager {
             username = removeEmptySpace(text: username)
             password = removeEmptySpace(text: password)
             
-            if username != "" && password != "" {
+            if username != EmptyString && password != EmptyString {
                 return (true, nil)
             } else {
-                return (false, "Unable to Sign In, Kindly fill up all the fields")
+                return (false, SignInIncompleteFields)
             }
         } else {
-            return (false, "Unable to Sign In, Kindly fill up all the fields")
+            return (false, SignInIncompleteFields)
         }
     }
     
@@ -73,18 +73,18 @@ public class FirebaseAuthenticationManager {
             let passwordMatched = comparePasswordForRegistration(password: password,
                                                                  passwordConfirm: passwordConfirm)
             if passwordMatched == true &&
-                username != "" &&
-                password != "" {
+                username != EmptyString &&
+                password != EmptyString {
                 return (true, nil)
             } else {
                 if passwordMatched == false {
-                    return (false, "Unable to complete registration, the passwords do not match")
+                    return (false, MismatchPassword)
                 } else {
-                    return (false, "Unable to complete registration, Kindly fill up all the fields")
+                    return (false, SignUpIncompleteFields)
                 }
             }
         } else {
-            return (false, "Unable to complete registration, Kindly fill up all the fields")
+            return (false, SignUpIncompleteFields)
         }
     }
     

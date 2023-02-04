@@ -45,9 +45,9 @@ class InventoryTableViewCell: UITableViewCell {
     }
     
     fileprivate func updateUI(item: InventoryItem) {
-        productName.text = "product: \(item.productName ?? "")"
+        productName.text = ProductTitle + (item.productName ?? EmptyString)
         let stockString = "\(item.stock ?? 0)"
-        stock.text = "stock: \(stockString)"
+        stock.text = StockTitle + stockString
     }
     
     @IBAction func didTapEditButton(_ sender: Any) {

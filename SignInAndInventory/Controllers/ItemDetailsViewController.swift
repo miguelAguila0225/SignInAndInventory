@@ -26,7 +26,7 @@ class ItemDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Add Item"
+        self.title = AddItem
         setupUI()
     }
     
@@ -39,15 +39,23 @@ class ItemDetailsViewController: UIViewController {
         addProductButton.layer.cornerRadius = 10
         productName.autocapitalizationType = .none
         productName.leftViewMode = .always
-        productName.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
+        productName.leftView = UIView(frame: CGRect(x: 0,
+                                                    y: 0,
+                                                    width: 5,
+                                                    height: 0))
         
         stock.delegate = self
         stock.keyboardType = .numberPad
         stock.leftViewMode = .always
-        stock.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
+        stock.leftView = UIView(frame: CGRect(x: 0,
+                                              y: 0,
+                                              width: 5,
+                                              height: 0))
         
         if mode == .edit {
-            addProductButton.setTitle("Update Item", for: .normal)
+            addProductButton.setTitle(UpdateItem,
+                                      for: .normal)
+            self.title = UpdateItem
         }
     }
     
@@ -71,7 +79,8 @@ class ItemDetailsViewController: UIViewController {
                                                                        stock: self.stock.text )
                     self.delegate?.didTapEditProduct(item: updatedItem )
                 } else {
-                    self.showAlert(title: "Update Failed", message: "Invalid Item")
+                    self.showAlert(title: UpdateErrorTitle,
+                                   message: UpdateErrorInvalidItem)
                 }
                 
             }
@@ -79,7 +88,8 @@ class ItemDetailsViewController: UIViewController {
             self.dismiss(animated: true) { [self] in
                 var newItem = InventoryItem()
                 if let name = self.productName.text, let stock = stock.text {
-                    newItem = firestoreManager.createNewItem(name: name, stock: stock)
+                    newItem = firestoreManager.createNewItem(name: name,
+                                                             stock: stock)
                     delegate?.didTapAddProduct(item: newItem)
                 }
             }
@@ -90,7 +100,7 @@ class ItemDetailsViewController: UIViewController {
 
 extension ItemDetailsViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let characterSet = "0123456789"
+        let characterSet = NumberSet
         let allowedCharacters = CharacterSet(charactersIn: characterSet)
         let typedCharacters = CharacterSet(charactersIn: string)
         let numbers = allowedCharacters.isSuperset(of: typedCharacters)

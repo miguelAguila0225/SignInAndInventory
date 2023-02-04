@@ -19,7 +19,7 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Log In"
+        self.title = LogIn
         setupLogInUI()
     }
     
@@ -44,15 +44,16 @@ class LogInViewController: UIViewController {
     @IBAction func didTapSignIn(_ sender: Any) {
         let (isValidCredentails, error) = firebaseAuthManager.checkCredentialsForSignIn(username: usernameTextField.text, password: passwordTextField.text)
         if isValidCredentails == true {
-            firebaseAuthManager.signInUser(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "") { success, error in
+            firebaseAuthManager.signInUser(username: usernameTextField.text ?? EmptyString,
+                                           password: passwordTextField.text ?? EmptyString) { success, error in
                 if success == true {
-                    self.presentInventoryView()
+                    self.dismiss(animated: true)
                 } else {
-                    self.showAlert(title: "Sign In Failed", message: error ?? "")
+                    self.showAlert(title: SignInErrorTitle, message: error ?? SignInError)
                 }
             }
         } else {
-            showAlert(title: "Sign In Failed", message: error ?? "")
+            showAlert(title: SignInErrorTitle , message: error ?? SignInError)
         }
     }
     
@@ -61,12 +62,12 @@ class LogInViewController: UIViewController {
     }
     
     func presentRegistrationView() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: Main, bundle: Bundle.main)
         let registrationViewController = storyboard.instantiateViewController(withIdentifier: RegistrationViewController.identifier) as! RegistrationViewController
-        self.navigationController?.pushViewController(registrationViewController, animated: true)
-    }
-    
-    func presentInventoryView() {
-        self.dismiss(animated: true)
+        
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(registrationViewController, animated: true)
+        }
+       
     }
 }

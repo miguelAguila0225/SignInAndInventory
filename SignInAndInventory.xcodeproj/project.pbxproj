@@ -25,6 +25,7 @@
 		5BF8486C298E4CAC00D07C73 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8486B298E4CAC00D07C73 /* FirestoreManager.swift */; };
 		5BF8486E298E58A900D07C73 /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8486D298E58A900D07C73 /* ItemDetailsViewController.swift */; };
 		5BF84870298E69A800D07C73 /* EncoderDecoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF8486F298E69A800D07C73 /* EncoderDecoderExtension.swift */; };
+		5BF84872298E944000D07C73 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF84871298E944000D07C73 /* StringConstants.swift */; };
 		E555C21754E4ADD6D5E687F7 /* Pods_SignInAndInventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EA1760D75ADB8B198C4073 /* Pods_SignInAndInventory.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		5BF8486B298E4CAC00D07C73 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		5BF8486D298E58A900D07C73 /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		5BF8486F298E69A800D07C73 /* EncoderDecoderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderDecoderExtension.swift; sourceTree = "<group>"; };
+		5BF84871298E944000D07C73 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		65D526B118B236E58DCC1C7C /* Pods-SignInAndInventory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignInAndInventory.debug.xcconfig"; path = "Target Support Files/Pods-SignInAndInventory/Pods-SignInAndInventory.debug.xcconfig"; sourceTree = "<group>"; };
 		A5546D03B98806F16328E47A /* Pods-SignInAndInventory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignInAndInventory.release.xcconfig"; path = "Target Support Files/Pods-SignInAndInventory/Pods-SignInAndInventory.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 				5BF8486B298E4CAC00D07C73 /* FirestoreManager.swift */,
 				5BF84861298E311A00D07C73 /* AlertControllerExtension.swift */,
 				5BF8486F298E69A800D07C73 /* EncoderDecoderExtension.swift */,
+				5BF84871298E944000D07C73 /* StringConstants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				5BF8486A298E47FE00D07C73 /* InventoryItem.swift in Sources */,
 				5BF8485E298E162B00D07C73 /* FirebaseAuthenticationManager.swift in Sources */,
 				5BF84864298E3B5A00D07C73 /* InventoryViewController.swift in Sources */,
+				5BF84872298E944000D07C73 /* StringConstants.swift in Sources */,
 				5B7BFA60298D5FEC00240FB9 /* AppDelegate.swift in Sources */,
 				5B7BFA62298D5FEC00240FB9 /* SceneDelegate.swift in Sources */,
 				5BF8486C298E4CAC00D07C73 /* FirestoreManager.swift in Sources */,

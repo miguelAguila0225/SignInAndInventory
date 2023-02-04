@@ -34,27 +34,39 @@ class SplashViewController: UIViewController {
     }
     
     func presentLogInViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let loginViewController = storyboard.instantiateViewController(withIdentifier: LogInViewController.identifier) as! LogInViewController
+        let storyboard = UIStoryboard(name: Main, bundle: Bundle.main)
+        guard let loginViewController = storyboard.instantiateViewController(withIdentifier: LogInViewController.identifier) as? LogInViewController else {
+            return
+        }
         let logInNavigationController = UINavigationController()
         logInNavigationController.viewControllers = [loginViewController]
         logInNavigationController.modalPresentationStyle = .fullScreen
-        self.navigationController?.present(logInNavigationController, animated: true)
+        
+        DispatchQueue.main.async {
+            self.navigationController?.present(logInNavigationController, animated: true)
+        }
     }
     
     func presentInventoryViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let inventoryViewController = storyboard.instantiateViewController(withIdentifier: InventoryViewController.identifier) as! InventoryViewController
+        let storyboard = UIStoryboard(name: Main, bundle: Bundle.main)
+        
+        guard let inventoryViewController = storyboard.instantiateViewController(withIdentifier: InventoryViewController.identifier) as? InventoryViewController else {
+            return
+        }
         firestoreManager.retrieveAllItems { items, error in
             guard error == nil, let items = items else {
-                self.showAlert(title: "Unable to retrieve inventory data", message: error ?? "")
+                self.showAlert(title: RetrieveErrorTitle, message: error ?? RetrieveError)
                 return
             }
             inventoryViewController.inventoryItems = items
             let inventoryNavigationController = UINavigationController()
             inventoryNavigationController.viewControllers = [inventoryViewController]
             inventoryNavigationController.modalPresentationStyle = .fullScreen
-            self.navigationController?.present(inventoryNavigationController, animated: true)
+            
+            DispatchQueue.main.async {
+                self.navigationController?.present(inventoryNavigationController, animated: true)
+            }
+            
         }
     }
     

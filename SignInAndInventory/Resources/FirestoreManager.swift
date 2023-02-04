@@ -15,7 +15,7 @@ public class FirestoreManager {
     
     func retrieveAllItems(completion: @escaping ([InventoryItem]?, String?) ->() ) {
         var inventoryItems = [InventoryItem]()
-        let collectionReference = database.collection("InventoryItems")
+        let collectionReference = database.collection(InventoryItems)
         collectionReference.getDocuments() { snapshot, error in
             guard let snapshotDocuments = snapshot?.documents, error == nil else {
                 completion(nil, error?.localizedDescription)
@@ -23,8 +23,8 @@ public class FirestoreManager {
             }
             inventoryItems = snapshotDocuments.map { doc in
                 return InventoryItem(id: doc.documentID,
-                                     productName: doc["productName"] as? String,
-                                     stock: doc["stock"] as? Int)
+                                     productName: doc[ProductName] as? String,
+                                     stock: doc[Stock] as? Int)
             }
             completion(inventoryItems, nil)
         }
@@ -34,7 +34,7 @@ public class FirestoreManager {
     
     func saveItem(item: InventoryItem, mode: DetailsMode, completion: @escaping (String?) ->()) {
         let document = encoderHelper.encodeItem(inputItem: item)
-        let collectionReference = database.collection("InventoryItems")
+        let collectionReference = database.collection(InventoryItems)
         switch mode {
         case .add:
             collectionReference.document(item.id!).setData(document){ error in
@@ -59,7 +59,7 @@ public class FirestoreManager {
     
     func deleteItem(item: InventoryItem?, completion: @escaping (String?) ->()) {
         if let item = item {
-            let documentReference = database.collection("InventoryItems").document(item.id!)
+            let documentReference = database.collection(InventoryItems).document(item.id!)
             documentReference.delete() { error in
                 guard error == nil else {
                     completion(error?.localizedDescription)
@@ -68,7 +68,7 @@ public class FirestoreManager {
                 completion(nil)
             }
         } else {
-            completion("No Item to Delete")
+            completion(DeleteErrorNoItem)
         }
        
     }

@@ -12,7 +12,6 @@ class RegistrationViewController: UIViewController {
     public static let identifier = String(describing: RegistrationViewController.self)
     let firebaseAuthManager = FirebaseAuthenticationManager()
     
-    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -20,7 +19,7 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Sign Up"
+        self.title = SignUp
         setupUI()
     }
     
@@ -46,24 +45,28 @@ class RegistrationViewController: UIViewController {
                                                                                                          password: passwordTextField.text,
                                                                                                          passwordConfirm: confirmPasswordTextField.text)
         if isCredentialsValid == true {
-            firebaseAuthManager.registerUser(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "", completion: {
+            firebaseAuthManager.registerUser(username: usernameTextField.text ?? EmptyString,
+                                             password: passwordTextField.text ?? EmptyString,
+                                             completion: {
                 success, error in
                 if success == true {
                     self.showAlertForSaveSuccess()
                 } else {
-                    self.showAlert(title: "Registration Failed", message: error ?? "")
+                    self.showAlert(title: RegistrationErrorTitle, message: error ?? RegistrationError)
                 }
             })
         } else {
-            showAlert(title: "Registration Failed", message: credentialsError ?? "")
+            showAlert(title: RegistrationErrorTitle, message: credentialsError ?? RegistrationErrorTitle)
         }
     }
     
     private func showAlertForSaveSuccess() {
-        let alert = UIAlertController(title: "Registration Successful",
-                                      message: "\(self.usernameTextField.text ?? "") registered",
+        let alert = UIAlertController(title: RegistrationSuccessTitle,
+                                      message: RegistrationSuccess + (self.usernameTextField.text ?? EmptyString),
                                       preferredStyle: UIAlertController.Style.alert)
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.dismiss(animated: true) {

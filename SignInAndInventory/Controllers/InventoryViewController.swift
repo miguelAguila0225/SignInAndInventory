@@ -23,18 +23,21 @@ class InventoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Inventory"
+        self.title = Inventory
         self.navigationController?.navigationBar.isOpaque = true
     }
     
     func getAllInventoryItems() {
         firestoreManager.retrieveAllItems {items, error in
             guard let items = items, error == nil else {
-                self.showAlert(title: "Error in retrieving inventory from database", message: error ?? "")
+                self.showAlert(title: RetrieveErrorTitle,
+                               message: error ?? RetrieveError)
                 return
             }
-            self.inventoryItems = items
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.inventoryItems = items
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -46,12 +49,14 @@ class InventoryViewController: UIViewController {
     }
     
     func setupBarButtonItems() {
-        let signOutButton = makeBarButtonItem(with: "Sign Out", style: .plain)
+        let signOutButton = makeBarButtonItem(with: SignOut,
+                                              style: .plain)
         signOutButton.target = self
         signOutButton.action = #selector(signOut)
         self.navigationItem.leftBarButtonItem = signOutButton
         
-        let addItemButton = makeBarButtonItem(with: "Add Item", style: .plain)
+        let addItemButton = makeBarButtonItem(with: AddItem,
+                                              style: .plain)
         addItemButton.target = self
         addItemButton.action = #selector(didTapAddItem)
         self.navigationItem.rightBarButtonItem = addItemButton
@@ -74,7 +79,10 @@ class InventoryViewController: UIViewController {
     }
     
     func makeBarButtonItem(with title: String, style: UIBarButtonItem.Style) -> UIBarButtonItem {
-        let button = UIBarButtonItem(title: title, style: style, target: nil, action: nil)
+        let button = UIBarButtonItem(title: title,
+                                     style: style,
+                                     target: nil,
+                                     action: nil)
         return button
     }
     
@@ -83,7 +91,8 @@ class InventoryViewController: UIViewController {
             if success == true {
                 self.dismiss(animated: true)
             } else {
-                self.showAlert(title: "Sign Out Failed", message: error ?? "")
+                self.showAlert(title: SignOutErrorTitle,
+                               message: error ?? SignOutError)
             }
         }
     }
@@ -95,8 +104,8 @@ class InventoryViewController: UIViewController {
     }
     
     func presentItemDetailsView(item: InventoryItem?, delegate: AddProductDelegate, mode: DetailsMode) {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let addItemViewController = storyboard.instantiateViewController(withIdentifier: ItemDetailsViewController.identifier) as! ItemDetailsViewController
+        let storyboard = UIStoryboard(name: Main, bundle: Bundle.main)
+        guard let addItemViewController = storyboard.instantiateViewController(withIdentifier: ItemDetailsViewController.identifier) as? ItemDetailsViewController else { return }
         addItemViewController.delegate = delegate
         addItemViewController.mode = mode
         
@@ -110,7 +119,9 @@ class InventoryViewController: UIViewController {
             sheet.detents = [.medium()]
         }
         
-        self.navigationController?.present(addItemNavigationController, animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.present(addItemNavigationController, animated: true)
+        }
     }
 }
 
@@ -135,23 +146,28 @@ extension InventoryViewController: AddProductDelegate {
     func didTapAddProduct(item: InventoryItem) {
         let isDuplicate = firestoreManager.isDuplicate(item: item, inventoryItems: inventoryItems)
         if isDuplicate != true {
-            firestoreManager.saveItem(item: item, mode: .add, completion: { error in
+            firestoreManager.saveItem(item: item,
+                                      mode: .add,
+                                      completion: { error in
                 guard error == nil else {
-                    self.showAlert(title: "Error in Adding Product", message: error ?? "")
+                    self.showAlert(title: AddProductErrorTitle,
+                                   message: error ?? AddProductError)
                     return
                 }
                 self.getAllInventoryItems()
             })
             
         } else {
-            showAlert(title: "Duplicate Product Error", message: "Inventory already contains this product")
+            showAlert(title: DuplicateErrorTitle,
+                      message: DuplicateErrorTitle)
         }
     }
     
     func didTapEditProduct(item: InventoryItem) {
         firestoreManager.saveItem(item: item, mode: .edit, completion: { error in
             guard error == nil else {
-                self.showAlert(title: "Error in Updating Product", message: error ?? "")
+                self.showAlert(title: UpdateErrorTitle,
+                               message: error ?? UpdateError)
                 return
             }
             self.getAllInventoryItems()
@@ -169,7 +185,8 @@ extension InventoryViewController: InventoryCellDelegate {
     func didTapDelete(selectedItem: InventoryItem?) {
         firestoreManager.deleteItem(item: selectedItem) { error in
             guard error == nil else {
-                self.showAlert(title: "Error in Deleting Product", message: error ?? "")
+                self.showAlert(title: DeleteErrorTitle,
+                               message: error ?? DeleteError)
                 return
             }
             self.getAllInventoryItems()
